@@ -2,6 +2,12 @@
 
 Báo cáo chính: [report.md](report.md) · Bug: [bug_report.md](bug_report.md) · Checklist: [checklist.xlsx](checklist.xlsx) / [checklist.md](checklist.md)
 
+> **Phiên bản mới nhất:** hãy `git clone` repo để có thông tin và bài làm mới nhất của bài tập này (thư mục `hw03/`):
+>
+> ```bash
+> git clone https://github.com/tue29092005a/eshop-sut.git
+> ```
+
 ## Bảng tự đánh giá
 
 > Điểm tự chấm do Tuệ quyết định; cột dưới đây là gợi ý theo trạng thái hiện tại và phải cập nhật khi xong Task 2, 3.
