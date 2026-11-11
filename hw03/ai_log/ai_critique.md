@@ -1,0 +1,7 @@
+# AI Critique 
+
+AI (Claude Code) làm nhanh các việc có cấu trúc như sinh checklist theo từng IA hay viết script Playwright, nhưng mắc ba loại sai. Thứ nhất, AI trình bày suy luận từ mã nguồn như sự thật: bản kế hoạch đầu có 31 lỗi, 25 lỗi chỉ dựa trên đọc mã, và một lỗi (thông báo đăng nhập "chung chung") thực ra đúng với FR-02, vốn yêu cầu không lộ nguyên nhân. Thứ hai, AI bám sát phạm vi prompt. Khi được hỏi về "giao diện", nó bỏ qua payload API trả mật khẩu plaintext, lỗi nâng quyền qua trường `role` và XSS ở header, dù đây là các lỗi nặng nhất; nó cũng không tự nhắc dark mode, RTL, nhãn gắn ô nhập hay `lang="vi"`. Thứ ba, AI đo trong môi trường của chính nó: Playwright cho thấy nút Sign In đứng đầu thứ tự Tab, còn tôi thao tác thật lại thấy nó đứng cuối vì điểm bắt đầu khác; định dạng ngày cũng phụ thuộc locale en-US của trình duyệt headless.
+
+Nguyên nhân là AI không có trải nghiệm người dùng thật, chỉ có văn bản và số liệu script đo được, nên nó lấp chỗ trống bằng suy đoán hợp lý nhưng chưa kiểm chứng, và không biết spec khác "thực hành tốt" nếu spec không có trong ngữ cảnh.
+
+Nguyên tắc tôi rút ra: chia kỹ thuật thành từng bước nhỏ và kiểm tra đầu ra mỗi bước; gắn nhãn nguồn gốc cho mọi phát hiện và chỉ ghi bug khi đã tái hiện; luôn đưa spec vào prompt; giữ cho con người phần không thể ủy quyền: cảm nhận của người dùng thật, ảnh trên thiết bị thật và quyết định công khai issue.
